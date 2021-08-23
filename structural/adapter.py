@@ -35,18 +35,23 @@ class Adapter:
         return getattr(self._object, attr)
 
 
-# List to store speaker objects
-objects = []
+def main() -> None:
+    # List to store speaker objects
+    objects = []
 
-# Create a Korean object
-korean = Korean()
+    # Create a Korean object
+    korean = Korean()
 
-# Create a British object
-british = British()
+    # Create a British object
+    british = British()
 
-# Append the objects to the objects list
-objects.append(Adapter(korean, speak=korean.speak_korean))
-objects.append(Adapter(british, speak=british.speak_english))
+    # Append the objects to the objects list
+    objects.append(Adapter(korean, speak=korean.speak_korean))
+    objects.append(Adapter(british, speak=british.speak_english))
 
-for obj in objects:
-    _logger.info(f'{obj.name} says {obj.speak()}')
+    for obj in objects:
+        _logger.info(f'{obj.name} says {obj.speak()}')
+
+
+if __name__ == '__main__':
+    main()
